@@ -41,6 +41,9 @@ export default {
       console.log(key, keyPath);
     },
   },
+  mounted () {
+    this.$store.dispatch('setCurrentJoke');
+  },
 };
 </script>
 
