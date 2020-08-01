@@ -14,15 +14,20 @@ export default {
   name: "Home",
   data() {
     return {
-      joke: 'Default'
+      // joke: 'Default'
     }
   },
   mounted () {
-    this.joke = this.$store.getters.getCurrentJoke;
+    // this.joke = this.$store.getters.getCurrentJoke;
+  },
+  computed: {
+    joke () {
+      return this.$store.getters.getCurrentJoke;
+    }
   },
   methods: {
     addJoke () {
-      
+      this.$store.dispatch('setCurrentJoke');
     }
   },
 };
