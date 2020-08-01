@@ -3,9 +3,19 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
-    state: {},
-    getters: {},
-    actions: {},
-    mutations: {}
+export default new Vuex.Store({
+    state: {
+        allJokes: [],
+        currentJoke: 'This is a joke',
+    },
+    mutations: {
+        setCurrentJoke (state, payload) {
+            state.currentJoke = payload;
+            state.allJokes.push(payload);
+        }
+    },
+    getters: {
+        getCurrentJoke: state => state.currentJoke
+    },
+    actions: {}
 });
