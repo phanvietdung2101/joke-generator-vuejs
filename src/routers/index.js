@@ -10,11 +10,13 @@ export default new VueRouter({
     mode: 'history',
     routes: [
         { 
-            path: '/', 
+            path: '/',
+            name: 'Home', 
             component: Home 
         },
         { 
             path: '/JokeList', 
+            name: 'JokeList',
             component: JokeList
         },
     ]
