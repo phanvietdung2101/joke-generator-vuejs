@@ -10,25 +10,14 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 export default {
   name: "Home",
-  data() {
-    return {
-      // joke: 'Default'
-    }
-  },
-  mounted () {
-    // this.joke = this.$store.getters.getCurrentJoke;
-  },
   computed: {
-    joke () {
-      return this.$store.getters.getCurrentJoke;
-    }
+    ...mapGetters({ joke: "getCurrentJoke" })
   },
   methods: {
-    addJoke () {
-      this.$store.dispatch('setCurrentJoke');
-    }
+    ...mapActions({addJoke: 'setCurrentJoke'})
   },
 };
 </script>

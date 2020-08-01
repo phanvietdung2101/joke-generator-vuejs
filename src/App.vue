@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: "app",
   components: {},
@@ -37,12 +38,13 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['setCurrentJoke']),
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
   },
   mounted () {
-    this.$store.dispatch('setCurrentJoke');
+    this.setCurrentJoke();
   },
 };
 </script>
