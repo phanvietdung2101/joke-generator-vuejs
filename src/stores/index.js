@@ -15,6 +15,11 @@ export default new Vuex.Store({
         setCurrentJoke(state, payload) {
             state.currentJoke = payload;
             state.allJokes.push(payload);
+        },
+        setJokeList(state) {
+            // get joke list from local storage
+            const jokeList = JSON.parse(localStorage.getItem('jokes'));
+            state.allJokes = jokeList;
         }
     },
     getters: {
@@ -42,6 +47,6 @@ export default new Vuex.Store({
                 .catch((error) => {
                     console.log(error)
                 })
-        }
+        },
     }
 })

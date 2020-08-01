@@ -5,6 +5,7 @@
   </div>
 </template>
 <script>
+import { mapMutations } from "vuex";
 export default {
   data() {
     return {
@@ -15,6 +16,15 @@ export default {
     jokes() {
       return this.$store.getters.getAllJokes;
     },
+  },
+  methods: {
+    ...mapMutations({ setJokeListFromStorage: 'setJokeList' })
+  },
+  beforeDestroy () {
+      localStorage.setItem('jokes',JSON.stringify(this.jokes));
+  },
+  mounted () {
+    this.setJokeListFromStorage();
   },
 };
 </script>
